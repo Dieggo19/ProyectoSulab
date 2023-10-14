@@ -34,6 +34,6 @@ services:
     image: proyectosulab-frontend:latest  # Reemplaza 'tu_imagen_vuejs' por la imagen que quieras usar
     restart: always
     ports:
-      - "3000:3000"  # Puedes cambiar el puerto según las necesidades de tu aplicación Vue.js
+      - "4000:3000"  # Puedes cambiar el puerto según las necesidades de tu aplicación Vue.js
 
     # Aquí puedes agregar cualquier configuración adicional para tu servicio Vue.js
