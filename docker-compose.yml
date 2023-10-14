@@ -18,7 +18,7 @@ services:
     depends_on:
       - postgresql-db
     ports:
-      - "8091:8081"  # Redireccionar el puerto 8091 del host al puerto 8081 del contenedor
+      - "8081:8091"  # Redireccionar el puerto 8091 del host al puerto 8081 del contenedor
     networks:
       - a_default  # Conectarse a la red definida "a_default"
 
