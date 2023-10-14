@@ -13,20 +13,28 @@ services:
     ports:
       - "5432:5432"
 
-  backend:
-    build: ./backend
+    app:
+    container_name: sulab-v1
+    image: diegoacunaj/sulab-v1
+    restart: always
+    ports:
+      - "8091:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql-db:5432/sulab
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=diego12345
+    deploy:
+      restart_policy:
+        condition: on-failure
     depends_on:
       - postgresql-db
-    ports:
-      - "8081:8091"  # Redireccionar el puerto 8091 del host al puerto 8081 del contenedor
-    networks:
-      - a_default  # Conectarse a la red definida "a_default"
 
   frontend:
-    build: ./frontend
-    container_name: a-frontend
+    container_name: sulab-v1
+    image: diegoacunaj/sulab-v1
+    restart: always
     ports:
-      - "3000:3000"  # Redireccionar el puerto 3000 del host al puerto 3000 del contenedor
+      - "3000:3000"
     networks:
       - a_default  # Conectarse a la red definida "a_default"
 
